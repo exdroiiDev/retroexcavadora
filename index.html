@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente para Retroexcavadoras</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Análisis de terreno</h1>
+    <p>Toma una foto del terreno para obtener análisis de profundidad y consejos de operación.</p>
+
+    <div class="camera-container">
+        <video id="camera-view" autoplay playsinline></video>
+        <img id="photo-preview" alt="Foto capturada">
+    </div>
+
+    <button id="capture-btn" class="btn btn-primary">Tomar Foto</button>
+    <button id="send-btn" class="btn btn-secondary btn-disabled" disabled>Analizar Foto</button>
+    <button id="retry-btn" class="btn btn-secondary" style="display: none;">Tomar Otra Foto</button>
+
+    <div class="loading">
+        <div class="spinner"></div>
+        <p>Analizando imagen...</p>
+    </div>
+
+    <!-- En el body, reemplaza la sección de resultados con esto: -->
+<div class="results" id="results">
+    <h2>Resultados del Análisis</h2>
+    
+    <div class="result-card">
+        <h3><i class="icon-depth"></i> Profundidad Estimada</h3>
+        <div class="result-content" id="depth-result">
+            <p>Esperando análisis...</p>
+        </div>
+    </div>
+    
+    <div class="result-card">
+        <h3><i class="icon-tips"></i> Consejos de Operación</h3>
+        <div class="result-content" id="tips-result">
+            <p>Se generarán consejos específicos para este terreno.</p>
+        </div>
+    </div>
+    
+    <div class="result-card">
+        <h3><i class="icon-warning"></i> Advertencias</h3>
+        <div class="result-content" id="warnings-result">
+            <p>Se mostrarán aquí las advertencias importantes.</p>
+        </div>
+    </div>
+    
+    <button id="new-photo-btn" class="btn btn-primary">
+        <i class="icon-camera"></i> Tomar Otra Foto
+    </button>
+</div>
+</div>
+
+<script src="js/camera.js"></script>
+<script src="js/gemini-api.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
